@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Outseee</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">Out<span>seee</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="cart.html">Cart <span class="badge" id="cartCount">0</span></a>
+        <a href="login.html">Login</a>
+        <a href="register.html" class="active">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- REGISTER SECTION -->
+  <section class="section">
+    <div style="
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    ">
+
+      <h2 style="font-size: 2rem; font-weight: 900; text-align: center;">
+        Create Account
+      </h2>
+
+      <p style="
+        text-align: center;
+        margin-top: 10px;
+        color: #6b7280;
+        font-weight: 700;
+      ">
+        Join Outseee & start shopping premium products 🚀
+      </p>
+
+      <form id="registerForm" style="margin-top: 25px; display: flex; flex-direction: column; gap: 14px;">
+
+        <input type="text" id="name" placeholder="Full Name" required
+          style="padding: 14px; border-radius: 12px; border: 1px solid #e5e7eb; font-weight: 700; outline: none;" />
+
+        <input type="email" id="email" placeholder="Email Address" required
+          style="padding: 14px; border-radius: 12px; border: 1px solid #e5e7eb; font-weight: 700; outline: none;" />
+
+        <input type="password" id="password" placeholder="Password" required
+          style="padding: 14px; border-radius: 12px; border: 1px solid #e5e7eb; font-weight: 700; outline: none;" />
+
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required
+          style="padding: 14px; border-radius: 12px; border: 1px solid #e5e7eb; font-weight: 700; outline: none;" />
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem;">
+          Register Now
+        </button>
+
+      </form>
+
+      <p style="text-align: center; margin-top: 18px; font-weight: 700; color: #6b7280;">
+        Already have an account?
+        <a href="login.html" style="color: #ff5a5f; font-weight: 900; text-decoration: none;">
+          Login
+        </a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <h3>Outseee</h3>
+        <p>Premium Ecommerce Store UI built for modern shopping experience.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="cart.html">Cart</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Outseee | Designed for Pro Portfolio 🚀
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value.trim();
+      let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match ❌");
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("outseee_users")) || [];
+
+      let existingUser = users.find(user => user.email === email);
+
+      if (existingUser) {
+        alert("User already exists with this email ⚠️");
+        return;
+      }
+
+      let newUser = {
+        name: name,
+        email: email,
+        password: password
+      };
+
+      users.push(newUser);
+      localStorage.setItem("outseee_users", JSON.stringify(users));
+
+      alert("Account created successfully ✅ Now login!");
+
+      window.location.href = "login.html";
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outseee | Admin Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Out<span>seee</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+        <a href="login.html">Login</a>
+        <a href="admin.html" class="active">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ADMIN -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Admin Dashboard</h2>
+      <a href="index.html" class="link-btn">← Back</a>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+
+      <!-- ADD PRODUCT -->
+      <div style="
+        background:white;
+        padding:20px;
+        border-radius:14px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      ">
+        <h3 style="font-weight:900;">Add New Product</h3>
+        <p style="color:#6b7280; font-weight:600; margin-bottom:15px;">
+          Add products to display on the store.
+        </p>
+
+        <form id="productForm" style="display:grid; gap:12px;">
+
+          <input type="text" id="pName" placeholder="Product Name" required
+            style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+
+          <input type="text" id="pCategory" placeholder="Category (Fashion/Electronics/Accessories)" required
+            style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+
+          <input type="text" id="pTag" placeholder="Tag (New/Trending/Best Seller)" required
+            style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+
+          <input type="number" id="pPrice" placeholder="Price" required
+            style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+
+          <input type="text" id="pImage" placeholder="Image URL (paste any image link)" required
+            style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+
+          <textarea id="pDesc" placeholder="Product Description" required rows="3"
+            style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;"></textarea>
+
+          <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+      </div>
+
+      <!-- PRODUCTS LIST -->
+      <div style="
+        background:white;
+        padding:20px;
+        border-radius:14px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      ">
+        <h3 style="font-weight:900;">All Products</h3>
+        <p style="color:#6b7280; fo

@@ -1,0 +1,537 @@
+/* ================================
+   OUTSEEE PRO - STYLE.CSS
+   Modern E-commerce UI (Amazon/Myntra Inspired)
+   Author: Outseee
+================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --primary: #ff5a5f;
+  --primary-dark: #e54b50;
+  --dark: #111827;
+  --gray: #6b7280;
+  --light-gray: #f3f4f6;
+  --white: #ffffff;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius: 14px;
+}
+
+body {
+  background: #fafafa;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* ================================
+   NAVBAR
+================================== */
+
+.navbar {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--dark);
+  letter-spacing: 0.5px;
+}
+
+.brand span {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: var(--light-gray);
+}
+
+.nav-links a.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Badge */
+.badge {
+  background: var(--primary);
+  color: white;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 50px;
+  margin-left: 6px;
+}
+
+/* ================================
+   HERO SECTION
+================================== */
+
+.hero {
+  background: linear-gradient(135deg, #ff5a5f, #ff8f70);
+  padding: 80px 18px;
+  text-align: center;
+  color: var(--white);
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================================
+   BUTTONS
+================================== */
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 2px solid var(--white);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--dark);
+}
+
+.link-btn {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary);
+  transition: 0.2s ease;
+}
+
+.link-btn:hover {
+  color: var(--primary-dark);
+}
+
+/* ================================
+   FEATURES
+================================== */
+
+.features {
+  max-width: 1200px;
+  margin: -40px auto 40px auto;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.feature-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  transition: 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+/* ================================
+   SECTIONS
+================================== */
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 18px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+/* ================================
+   PRODUCT GRID + CARD
+================================== */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: 0.25s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.product-card .product-info {
+  padding: 15px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.product-card p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.product-card .price {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.product-card .tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--dark);
+  color: var(--white);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+/* ================================
+   NEWSLETTER
+================================== */
+
+.newsletter {
+  padding: 60px 18px;
+  background: var(--light-gray);
+}
+
+.newsletter-box {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  background: var(--white);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.newsletter-box h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.newsletter-box p {
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 14px;
+  width: 280px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.newsletter-form input:focus {
+  border: 1px solid var(--primary);
+}
+
+/* ================================
+   FOOTER
+================================== */
+
+.footer {
+  background: var(--dark);
+  color: var(--white);
+  padding: 40px 18px 20px 18px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.footer-container h3,
+.footer-container h4 {
+  margin-bottom: 10px;
+}
+
+.footer-container p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.footer-container a {
+  display: block;
+  text-decoration: none;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.footer-container a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 25px;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+/* ================================
+   FORMS (LOGIN / REGISTER / CHECKOUT)
+================================== */
+
+.form-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.form-container h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.form-container input:focus {
+  border: 1px solid var(--primary);
+}
+
+.form-container p {
+  text-align: center;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.form-container a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ================================
+   CART PAGE
+================================== */
+
+.cart-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.cart-item {
+  background: var(--white);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cart-item h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.cart-item span {
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.cart-summary {
+  background: var(--white);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+/* ================================
+   ADMIN DASHBOARD
+================================== */
+
+.admin-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.admin-card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th, .table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background: var(--light-gray);
+  font-weight: 900;
+}
+
+/* ================================
+   RESPONSIVE
+================================== */
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .nav-links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

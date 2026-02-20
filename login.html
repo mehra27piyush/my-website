@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outseee | Login</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Out<span>seee</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+        <a href="login.html" class="active">Login</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- LOGIN SECTION -->
+  <section class="section">
+    <div style="
+      max-width:420px;
+      margin:auto;
+      background:white;
+      padding:25px;
+      border-radius:16px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    ">
+
+      <h2 style="font-weight:900; font-size:2rem;">Welcome Back 👋</h2>
+      <p style="color:#6b7280; font-weight:600; margin-top:6px;">
+        Login to continue shopping on Outseee.
+      </p>
+
+      <form id="loginForm" style="margin-top:20px; display:grid; gap:12px;">
+        <input type="email" id="email" placeholder="Email Address" required
+          style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+
+        <input type="password" id="password" placeholder="Password" required
+          style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <label style="font-weight:700; color:#111827;">
+            <input type="checkbox" id="rememberMe">
+            Remember me
+          </label>
+
+          <a href="#" style="font-weight:800; color:#ff5a5f; text-decoration:none;">
+            Forgot Password?
+          </a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+
+      <p style="margin-top:15px; font-weight:700; color:#6b7280; text-align:center;">
+        Don’t have an account?
+        <a href="register.html" style="font-weight:900; color:#111827; text-decoration:none;">
+          Register
+        </a>
+      </p>
+
+      <div style="
+        margin-top:20px;
+        padding:12px;
+        border-radius:14px;
+        background:#f9fafb;
+      ">
+        <p style="font-weight:800; margin-bottom:6px;">Demo Login:</p>
+        <p style="font-weight:700; color:#6b7280;">Email: demo@outseee.com</p>
+        <p style="font-weight:700; color:#6b7280;">Password: 123456</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <h3>Outseee</h3>
+        <p>Modern shopping experience built with pure HTML, CSS & JavaScript.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+    <p class="footer-bottom">© 2026 Outseee. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    // Create demo user if not exists
+    if (!localStorage.getItem("outseee_users")) {
+      const demoUsers = [
+        { email: "demo@outseee.com", password: "123456", name: "Demo User" }
+      ];
+      localStorage.setItem("outseee_users", JSON.stringify(demoUsers));
+    }
+
+    // Remember Me load
+    const savedEmail = localStorage.getItem("outseee_saved_email");
+    if (savedEmail) {
+      document.getElementById("email").value = savedEmail;
+      document.getElementById("rememberMe").checked = true;
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const remember = document.getElementById("rememberMe").checked;
+
+      const users = JSON.parse(localStorage.getItem("outseee_users")) || [];
+
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (!user) {
+        alert("Invalid Email or Password ❌");
+        return;
+      }
+
+      localStorage.setItem("outseee_logged_user", JSON.stringify(user));
+
+      if (remember) {
+        localStorage.setItem("outseee_saved_email", email);
+      } else {
+        localStorage.removeItem("outseee_saved_email");
+      }
+
+      alert("Login Successful ✅ Welcome " + user.name);
+      window.location.href = "index.html";
+    });
+
+    updateCartCount();
+  </script>
+
+</body>
+</html>

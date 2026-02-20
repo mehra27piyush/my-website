@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outseee | Product Details</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Out<span>seee</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+        <a href="login.html">Login</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PRODUCT DETAILS -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Product Details</h2>
+      <a href="products.html" class="link-btn">← Back to Products</a>
+    </div>
+
+    <div id="productDetailsBox" style="
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      background:white;
+      border-radius:14px;
+      padding:22px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    ">
+      <!-- Dynamic content -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <h3>Outseee</h3>
+        <p>Modern shopping experience built with pure HTML, CSS & JavaScript.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+    <p class="footer-bottom">© 2026 Outseee. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    function loadProductDetails() {
+      const productId = parseInt(localStorage.getItem("outseee_selected_product"));
+      const products = getProducts();
+      const product = products.find(p => p.id === productId);
+
+      const box = document.getElementById("productDetailsBox");
+
+      if (!product) {
+        box.innerHTML = "<p>Product not found!</p>";
+        return;
+      }
+
+      box.innerHTML = `
+        <div>
+          <img src="${product.image}" alt="${product.name}" style="
+            width:100%;
+            border-radius:14px;
+            height:350px;
+            object-fit:cover;
+          ">
+        </div>
+
+        <div>
+          <h2 style="font-size:2rem; font-weight:900; margin-bottom:10px;">
+            ${product.name}
+          </h2>
+
+          <p style="color:#6b7280; font-weight:600; margin-bottom:10px;">
+            Category: <span style="color:#111827;">${product.category}</span>
+          </p>
+
+          <p style="
+            display:inline-block;
+            background:#111827;
+            color:white;
+            padding:6px 14px;
+            border-radius:50px;
+            font-weight:700;
+            margin-bottom:15px;
+          ">
+            ${product.tag}
+          </p>
+
+          <h3 style="font-size:1.8rem; color:#ff5a5f; font-weight:900; margin-bottom:10px;">
+            $${product.price}
+          </h3>
+
+          <p style="color:#6b7280; font-size:1rem; margin-bottom:20px;">
+            ${product.desc}
+          </p>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="addToCart(${product.id})">
+              Add to Cart
+            </button>
+
+            <a href="cart.html" class="btn btn-outline" style="border:2px solid #111827; color:#111827;">
+              Go to Cart
+            </a>
+          </div>
+
+          <div style="margin-top:20px; padding:14px; background:#f3f4f6; border-radius:14px;">
+            <h4 style="font-weight:900; margin-bottom:8px;">Delivery & Return</h4>
+            <p style="color:#6b7280; font-weight:600;">
+              ✔ Fast Delivery in 2-5 days <br>
+              ✔ Easy 7-day return policy <br>
+              ✔ Cash on Delivery available
+            </p>
+          </div>
+        </div>
+      `;
+    }
+
+    loadProductDetails();
+    updateCartCount();
+  </script>
+
+</body>
+</html>

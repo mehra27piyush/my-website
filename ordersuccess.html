@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outseee | Order Success</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Out<span>seee</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+        <a href="login.html">Login</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SUCCESS SECTION -->
+  <section class="section">
+    <div style="
+      max-width:900px;
+      margin:auto;
+      background:white;
+      padding:25px;
+      border-radius:16px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      text-align:center;
+    ">
+
+      <h1 style="font-size:2.4rem; font-weight:900; color:#111827;">
+        🎉 Order Placed Successfully!
+      </h1>
+
+      <p style="margin-top:10px; color:#6b7280; font-weight:600;">
+        Thank you for shopping with <b>Outseee</b>. Your order is confirmed.
+      </p>
+
+      <div style="
+        margin-top:20px;
+        background:#f9fafb;
+        padding:18px;
+        border-radius:14px;
+        text-align:left;
+      ">
+        <h3 style="font-weight:900; margin-bottom:12px;">Order Details</h3>
+
+        <div id="orderDetails"></div>
+      </div>
+
+      <div style="margin-top:20px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+        <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+        <a href="index.html" class="btn btn-outline" style="border:2px solid #111827; color:#111827;">Back to Home</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <h3>Outseee</h3>
+        <p>Modern shopping experience built with pure HTML, CSS & JavaScript.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+    <p class="footer-bottom">© 2026 Outseee. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    function loadOrderDetails() {
+      const order = JSON.parse(localStorage.getItem("outseee_last_order"));
+      const box = document.getElementById("orderDetails");
+
+      if (!order) {
+        box.innerHTML = "<p>No recent order found.</p>";
+        return;
+      }
+
+      let products = getProducts();
+      let total = 0;
+
+      let itemsHTML = "";
+
+      order.cart.forEach(item => {
+        const product = products.find(p => p.id === item.id);
+        if (!product) return;
+
+        const itemTotal = product.price * item.qty;
+        total += itemTotal;
+
+        itemsHTML += `
+          <p style="font-weight:700; color:#111827; margin-bottom:6px;">
+            ${product.name} (x${item.qty}) - <span style="color:#ff5a5f;">$${itemTotal}</span>
+          </p>
+        `;
+      });
+
+      const deliveryFee = 10;
+      const finalTotal = total + deliveryFee;
+
+      box.innerHTML = `
+        <p style="font-weight:700; margin-bottom:6px;">👤 <b>Name:</b> ${order.name}</p>
+        <p style="font-weight:700; margin-bottom:6px;">📞 <b>Phone:</b> ${order.phone}</p>
+        <p style="font-weight:700; margin-bottom:6px;">📧 <b>Email:</b> ${order.email}</p>
+        <p style="font-weight:700; margin-bottom:6px;">🏠 <b>Address:</b> ${order.address}, ${order.city}, ${order.state} - ${order.zip}</p>
+        <p style="font-weight:700; margin-bottom:6px;">💳 <b>Payment:</b> ${order.payment}</p>
+        <p style="font-weight:700; margin-bottom:12px;">📅 <b>Date:</b> ${order.date}</p>
+
+        <hr style="margin:12px 0;">
+
+        <h4 style="font-weight:900; margin-bottom:10px;">Items Ordered</h4>
+        ${itemsHTML}
+
+        <hr style="margin:12px 0;">
+
+        <p style="font-weight:800;">Subtotal: <span style="float:right;">$${total}</span></p>
+        <p style="font-weight:800;">Delivery Fee: <span style="float:right;">$${deliveryFee}</span></p>
+        <p style="font-weight:900; font-size:1.2rem; margin-top:10px;">
+          Total Paid: <span style="float:right; color:#ff5a5f;">$${finalTotal}</span>
+        </p>
+      `;
+    }
+
+    loadOrderDetails();
+    updateCartCount();
+  </script>
+
+</body>
+</html>

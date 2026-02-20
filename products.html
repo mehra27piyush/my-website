@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outseee | Products</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Out<span>seee</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+        <a href="login.html">Login</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="section">
+    <div class="section-header">
+      <h2>All Products</h2>
+      <a href="index.html" class="link-btn">← Back</a>
+    </div>
+
+    <!-- FILTERS -->
+    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+      <input type="text" id="searchBox" placeholder="Search products..."
+        style="flex:1; min-width:220px; padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;" />
+
+      <select id="categoryFilter"
+        style="padding:12px; border-radius:12px; border:1px solid #ddd; outline:none;">
+        <option value="all">All Categories</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+
+      <select id="sortFilter"
+        style="padding

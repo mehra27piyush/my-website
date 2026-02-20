@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outseee | Premium Shopping Experience</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Out<span>seee</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a>
+        <a href="login.html">Login</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Shop Smarter with Outseee</h1>
+      <p>
+        Premium fashion, gadgets & lifestyle products — curated with modern UI,
+        fast experience and smart shopping.
+      </p>
+      <div class="hero-buttons">
+        <a href="products.html" class="btn btn-primary">Explore Products</a>
+        <a href="register.html" class="btn btn-outline">Create Account</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature-card">
+      <h3>Fast Delivery</h3>
+      <p>Super quick shipping with trusted courier partners.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Secure Payments</h3>
+      <p>UPI, Card & COD options with safe checkout experience.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Premium Quality</h3>
+      <p>Curated products with verified quality checks.</p>
+    </div>
+  </section>
+
+  <!-- TRENDING PRODUCTS -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Trending Products</h2>
+      <a href="products.html" class="link-btn">View All →</a>
+    </div>
+
+    <div id="trendingProducts" class="product-grid">
+      <!-- Products will load from JS -->
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-box">
+      <h2>Join Outseee Club</h2>
+      <p>Get exclusive deals & premium offers directly in your inbox.</p>
+
+      <div class="newsletter-form">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email" />
+        <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <h3>Outseee</h3>
+        <p>Modern shopping experience built with pure HTML, CSS & JavaScript.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+    <p class="footer-bottom">© 2026 Outseee. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="piyush.js"></script>
+
+  <script>
+    function subscribeNewsletter() {
+      const email = document.getElementById("newsletterEmail").value;
+
+      if (!email || !email.includes("@")) {
+        alert("Please enter a valid email!");
+        return;
+      }
+
+      alert("Welcome to Outseee Club! 🎉");
+      document.getElementById("newsletterEmail").value = "";
+    }
+
+    loadTrendingProducts();
+    updateCartCount();
+  </script>
+
+</body>
+</html>
