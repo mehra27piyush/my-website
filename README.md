@@ -33,14 +33,12 @@ This project provides a clean shopping interface with responsive design and inte
 
 ## 📸 Website Preview
 
-(Add screenshot here)
+
 
 ---
 
 ## 🚀 Live Demo
 
-(Add Netlify / GitHub Pages link here)
+https://mehra27piyush.github.io/my-website/
 
 ---
-
-## 📂 Project Structure
