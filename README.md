@@ -1,27 +1,46 @@
-# my website
-website with the help of html ,css, js
-# 🛒 My E-commerce Website
+# 👋 Hi, I'm Piyush 🚀
 
-This is a simple eCommerce website created using HTML, CSS, and JavaScript.  
-It shows products, allows users to view items, and provides a basic shopping UI.
+🎓 BCA Student | 💻 Web Developer | 🌐 Frontend Enthusiast  
+I love building modern web applications and learning new technologies.
 
 ---
 
-## 🚀 Features
+## 🛒 Outseee — E-commerce Website
 
-✔ Product listing page  
-✔ Add to cart functionality  
-✔ Responsive design  
-✔ Clean UI design  
-✔ Basic shopping interface  
+A modern eCommerce website built using HTML, CSS, and JavaScript.  
+This project provides a clean shopping interface with responsive design and interactive UI.
+
+---
+
+## ✨ Features
+
+✅ Modern UI design  
+✅ Product listing page  
+✅ Add to cart functionality  
+✅ Login & Admin page UI  
+✅ Responsive design (mobile friendly)  
+✅ Fast and simple shopping experience  
 
 ---
 
 ## 🛠 Tech Stack
 
-- HTML
-- CSS
-- JavaScript
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
 
 ---
 
+## 📸 Website Preview
+
+(Add screenshot here)
+
+---
+
+## 🚀 Live Demo
+
+(Add Netlify / GitHub Pages link here)
+
+---
+
+## 📂 Project Structure
