@@ -32,6 +32,8 @@ This project provides a clean shopping interface with responsive design and inte
 ---
 
 ## 📸 Website Preview
+preview.png
+
 
 
 
