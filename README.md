@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Piyush 🚀
 
-🎓 BCA Student | 💻 Web Developer | 🌐 Frontend Enthusiast  
+ 💻 Web Developer | 🌐 Frontend Enthusiast  
 I love building modern web applications and learning new technologies.
 
 ---
